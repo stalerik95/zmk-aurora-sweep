@@ -58,9 +58,9 @@ ZMK_CONDITIONAL_LAYER(NAV NUM, DAN)
 ZMK_COMBO(combo_sleep,  &win_sleep, RT3 RT4, NAV)  // custom sleep macro, only active on NAV layer
 ZMK_COMBO(combo_copy,   &kp LC(C),  LB2 LB3, ALL)  // Ctrl + C, active on all layers
 ZMK_COMBO(combo_paste,  &kp LC(V),  LB1 LB2, ALL)  // Ctrl + V, active on all layers
-ZMK_COMBO(combo_space,  &kp SPACE,  RB2 RB3, ALP)
-ZMK_COMBO(combo_dk_ae,  &dk_ae,  RB3 RB4, ALP)
-ZMK_COMBO(combo_dk_ae,  &dk_oe,  RB4 RB5, ALP)
+ZMK_COMBO(combo_space,  &kp SPACE,  RB2 RB3, SWE DAN)
+ZMK_COMBO(combo_dk_ae,  &dk_ae,  RB3 RB4, SWE DAN)
+ZMK_COMBO(combo_dk_ae,  &dk_oe,  RB4 RB5, SWE DAN)
 
 
 /* keymap */
