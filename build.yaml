@@ -11,15 +11,9 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
-# ---
-# include:
-#   - board: nice_nano_v2
-#     shield: splitkb_aurora_sweep_left nice_view_adapter nice_view
-#   - board: nice_nano_v2
-#     shield: splitkb_aurora_sweep_right nice_view_adapter nice_view
-
-on: [push, pull_request, workflow_dispatch]
-
-jobs:
-  build:
-    uses: urob/zmk/.github/workflows/build-user-config.yml@build-with-submodules
+---
+include:
+  - board: nice_nano_v2
+    shield: splitkb_aurora_sweep_left nice_view_adapter nice_view
+  - board: nice_nano_v2
+    shield: splitkb_aurora_sweep_right nice_view_adapter nice_view
