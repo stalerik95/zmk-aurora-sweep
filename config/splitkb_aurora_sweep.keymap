@@ -69,8 +69,8 @@ ZMK_COMBO(combo_del,     &kp DEL,       RM1 RB2,       ALL)
 
 ZMK_COMBO(combo_up,      &kp UP,        RM1 RT2 RM3,   ALL)
 ZMK_COMBO(combo_down,    &kp DOWN,      RM1 RB2 RM3,   ALL)
-ZMK_COMBO(combo_left,    &kp UP,        RM1 RT2,       ALL)
-ZMK_COMBO(combo_right,   &kp UP,        RT2 RM3,       ALL)
+ZMK_COMBO(combo_left,    &kp LEFT,      RM1 RT2,       ALL)
+ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,       ALL)
 
 ZMK_COMBO(combo_next_bt, &bt BT_NXT,    RT4 RM4 RB4,   ALL)
 ZMK_COMBO(combo_prev_bt, &bt BT_PRV,    LT4 LM4 LB4,   ALL)
