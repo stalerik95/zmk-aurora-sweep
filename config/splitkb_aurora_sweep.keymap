@@ -22,7 +22,7 @@
 
 // homerow mods
 ZMK_BEHAVIOR(hrm, hold_tap,
-    flavor = "balanced";
+    flavor = "tap-preferred";
     tapping-term-ms = <280>;
     quick-tap-ms = <125>;
     global-quick-tap;
@@ -87,6 +87,11 @@ ZMK_COMBO(combo_up,      &kp UP,        RM1 RT2 RM3,   ALL)
 ZMK_COMBO(combo_down,    &kp DOWN,      RM1 RB2 RM3,   ALL)
 ZMK_COMBO(combo_left,    &kp LEFT,      RM1 RT2,       ALL)
 ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,       ALL)
+ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,   ALL)
+ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RB1 RB2 RB3,   ALL)
+ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2,       ALL)
+ZMK_COMBO(combo_end,     &kp END,       RT2 RT3,       ALL)
+
 
 ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,   ALL)
 ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RB1 RB2 RB3,   ALL)
