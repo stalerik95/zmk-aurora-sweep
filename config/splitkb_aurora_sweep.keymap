@@ -52,7 +52,7 @@ ZMK_BEHAVIOR(win_sleep, macro,
 ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 
 // replace a/o/u/s with German umlauts when NAV and NUM are held jointly
-ZMK_CONDITIONAL_LAYER(NAV NUM, DAN)
+ZMK_CONDITIONAL_LAYER(NAV NUM)
 
 // combos
 #undef COMBO_TERM
