@@ -81,8 +81,8 @@ ZMK_COMBO(combo_next_bt, &bt BT_NXT,    RT4 RM4 RB4,   ALL)
 ZMK_COMBO(combo_prev_bt, &bt BT_PRV,    LT4 LM4 LB4,   ALL)
 ZMK_COMBO(combo_clr_bt,  &bt BT_CLR,    LT4 LM4 LB4 RT4 RM4 RB4,   ALL)
 
-ZMK_COMBO(combo_dk_ae,   &dk_ae,        RB3 RB4,       SWE)
-// ZMK_COMBO(combo_dk_oe,   &dk_oe,        RB4 RB5,       SWE)
+ZMK_COMBO(combo_dk_ae,   &dk_ae,        RB2 RB3,       SWE)
+ZMK_COMBO(combo_dk_oe,   &dk_oe,        RB3 RB4,       SWE)
 
 /* keymap */
 
