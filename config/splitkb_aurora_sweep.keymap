@@ -3,20 +3,19 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <keymap-swedish.h>
 
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
 #include "../zmk-nodefree-config/international_chars/swedish.dtsi"
-#include "../zmk-nodefree-config/international_chars/danish.dtsi"
 
 /* layer and key shortcuts */
 
 #define ___ &trans
 
-#define SWE 0  // layer shortcuts, must match order in which they are defined below
+#define ALPHA  0  // layer shortcuts, must match order in which they are defined below 
 #define SYM 1
 #define NUM 2
-#define NAV 3
 
 /* custom behaviors */
 
@@ -73,84 +72,66 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // combos
 #undef COMBO_TERM
 #define COMBO_TERM 60  // (default is 30ms if omitted)
-ZMK_COMBO(combo_sleep,   &win_sleep,    RT3 RT4,       NAV)  // custom sleep macro, only active on NAV layer
-ZMK_COMBO(combo_copy,    &kp LC(C),     LB2 LB3,       ALL)  // Ctrl + C, active on all layers
-ZMK_COMBO(combo_paste,   &kp LC(V),     LB1 LB2,       ALL)  // Ctrl + V, active on all layers
+ZMK_COMBO(combo_sleep,   &win_sleep,    RT3 RT4, NAV)  // custom sleep macro, only active on NAV layer
+ZMK_COMBO(combo_copy,    &kp LC(C),     LB2 LB3, ALL)  // Ctrl + C, active on all layers
+ZMK_COMBO(combo_paste,   &kp LC(V),     LB1 LB2, ALL)  // Ctrl + V, active on all layers
 
-ZMK_COMBO(combo_escape,  &kp ESC,       LT4 LT3,       ALL)
-ZMK_COMBO(combo_return,  &kp RET,       RM2 RM3 RM4,   ALL)
-ZMK_COMBO(combo_tab,     &kp TAB,       RM2 RM3,       ALL)
-ZMK_COMBO(combo_bspc,    &kp BSPC,      RB1 RM2,       ALL)
-ZMK_COMBO(combo_del,     &kp DEL,       RM1 RB2,       ALL)
+ZMK_COMBO(combo_escape,  &kp ESC,       LT4 LT3, ALL)
+ZMK_COMBO(combo_return,  &kp RET,       LM2 LM1, ALL)
+ZMK_COMBO(combo_tab,     &kp TAB,       LM3 RM2, ALL)
+ZMK_COMBO(combo_bspc,    &kp BSPC,      LM2 LT1, ALL)
+ZMK_COMBO(combo_del,     &kp DEL,       LT2 LT1, ALL)
 
-ZMK_COMBO(combo_up,      &kp UP,        RM1 RT2 RM3,   ALL)
-ZMK_COMBO(combo_down,    &kp DOWN,      RM1 RB2 RM3,   ALL)
-ZMK_COMBO(combo_left,    &kp LEFT,      RM1 RT2,       ALL)
-ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,       ALL)
-ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,   ALL)
-ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RB1 RB2 RB3,   ALL)
-ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2,       ALL)
-ZMK_COMBO(combo_end,     &kp END,       RT2 RT3,       ALL)
+// navigation
+ZMK_COMBO(combo_up,      &kp UP,        RT1 RT2,         ALL)
+ZMK_COMBO(combo_down,    &kp DOWN,      RM1 RM2,         ALL)
+ZMK_COMBO(combo_left,    &kp LEFT,      RM1 RT2,         ALL)
+ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,         ALL)
+ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,     ALL)
+ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RM1 RM2 RM3,     ALL)
+ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2 RT3 RT4, ALL)
+ZMK_COMBO(combo_end,     &kp END,       RM1 RM2 RM3 RM5, ALL)
 
-
-ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,   ALL)
-ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RB1 RB2 RB3,   ALL)
-ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2,       ALL)
-ZMK_COMBO(combo_end,     &kp END,       RT2 RT3,       ALL)
-
-ZMK_COMBO(combo_next_bt, &bt BT_NXT,    RT4 RM4 RB4,   ALL)
-ZMK_COMBO(combo_prev_bt, &bt BT_PRV,    LT4 LM4 LB4,   ALL)
+// bluetooth
+ZMK_COMBO(combo_next_bt, &bt BT_NXT,    RT4 RM4 RB4,               ALL)
+ZMK_COMBO(combo_prev_bt, &bt BT_PRV,    LT4 LM4 LB4,               ALL)
 ZMK_COMBO(combo_clr_bt,  &bt BT_CLR,    LT4 LM4 LB4 RT4 RM4 RB4,   ALL)
-
-ZMK_COMBO(combo_dk_ae,   &dk_ae,        RB2 RB3,       SWE)
-ZMK_COMBO(combo_dk_oe,   &dk_oe,        RB3 RB4,       SWE)
 
 /* keymap */
 
-ZMK_LAYER(swe,
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬──────────────┬─────────────╮
-         &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U          &kp Y          ___
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼──────────────┼─────────────┤
-         &kp A         &kp R         &kp S         &kp T         &kp G             &kp M         &kp N         &kp E          &kp I          &kp O
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼──────────────┼─────────────┤
-         &kp Z         &hrm LGUI X   &hrm LALT C   &hrm LCTRL D  &kp V             &kp K         &hrm LCTRL H  &hrm_ao LALT 0 &hrm_ae LGUI 0 &sv_oe      
-     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴──────────────┴─────────────╯
-                                                   &kp LSHFT     &kp SPACE         &mo SYM       &mo NUM  
-     //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+ZMK_LAYER(alpha,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬───────────────┬───────────────┬─────────────╮
+         &kp Q         &kp W         &kp F         &kp P         &kp B             &kp J         &kp L         &kp U           &kp Y            ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼───────────────┼───────────────┼─────────────┤
+         &kp A         &kp R         &kp S         &kp T         &kp G             &kp M         &kp N         &kp E           &kp I           &kp O
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼───────────────┼───────────────┼─────────────┤
+         &kp Z         &hrm LGUI X   &hrm LALT C   &hrm LCTRL D  &kp V             &kp K         &hrm LCTRL H  &hrm LALT SE_AA &hrm LGUI SE_AE &kp SE_ODIA      
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼───────────────┴───────────────┴─────────────╯
+                                                   &mo NUM       &kp LSHFT         &kp SPACE     &mo SYM         
+     //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯ 
 )
 
 ZMK_LAYER(sym,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          ___          &kp GRAVE     &kp SQT       &kp DQT       &kp CARET         &kp PERCENT   &kp LBRC      &kp RBRC      &kp LT        &kp GT
+         &kp SE_DIAE   &kp SE_ACUT   &kp SQT       &kp DQT       &kp CARET         &kp SE_PERC   &kp SE_LBRC   &kp SE_RBRC   &kp SE_LT     &kp SE_GT
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp AT        &kp HASH      &kp COMMA     &kp DOT       &kp MINUS         &kp STAR      &kp LPAR      &kp RPAR      &kp FSLH      &kp BSLH
+         &kp SE_AT     &kp SE_HASH   &kp SE_COMMA  &kp SE_DOT    &kp SE_MINS       &kp SE_ASTR   &kp SE_LPRN   &kp SE_RPRN   &kp SE_SLSH   &kp SE_BSLS
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          ___          &kp TILDE     &kp QMARK     &kp EXCL      &kp PLUS          &kp DOLLAR    &kp LBKT      &kp RBKT      &kp PIPE      &kp AMPS
+         &kp SE_CIRC   &kp SE_TILD   &kp SE_QUES   &kp SE_EXLM   &kp SE_PLUS       &kp SE_DLR    &kp SE_LBKT   &kp SE_RBKT   &kp SE_PIPE   &kp SE_AMPR
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                     ___           ___               ___           ___
      //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
 )
 
 ZMK_LAYER(num,
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-         &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10        
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp N1        &hrm LGUI N2  &hrm LALT N3  &hrm LCTRL N4 &kp N5            &kp N6        &hrm LCTRL N7 &hrm LALT N8  &hrm LGUI N9  &kp N0
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-         &kp F11       &kp F12       &kp F13       &kp F14       &kp F15           &kp F16       &kp F17       &kp F18       &kp F19       &kp F20
-     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    ___           ___               ___           ___
-     //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+     // ╭─────────────┬─────────────┬─────────────┬──────────────┬─────────────╮   ╭─────────────┬──────────────┬─────────────┬─────────────┬─────────────╮
+         &kp F1        &kp F2        &kp F3        &kp F4         &kp F5            &kp F6        &kp F7         &kp F8        &kp F9        &kp F10        
+     // ├─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤   ├─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
+         &kp N1        &kp N2        &kp N3        &kp N4         &kp N5            &kp N6        &kp N7         &kp N8        &kp N9        &kp N0
+     // ├─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤   ├─────────────┼──────────────┼─────────────┼─────────────┼─────────────┤
+         &kp F11       &krm LGUI F12 &hrm LALT F13 &hrm LCTRL F14 &kp F15           &kp F16       &hrm LCTRL F17 &hrm LALT F18 &hrm LGUI F19 &kp F20
+     // ╰─────────────┴─────────────┴─────────────┼──────────────┼─────────────┤   ├─────────────┼──────────────┼─────────────┴─────────────┴─────────────╯
+                                                    ___            ___               ___           ___
+     //                                           ╰──────────────┴─────────────╯   ╰─────────────┴─────────────╯
 )
 
-ZMK_LAYER(nav,
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          ___           ___           ___           ___           ___               &kp PG_UP     &kp HOME      &kp UP        &kp END       &kp INS
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &sk LGUI      &sk LALT      &sk LCTRL     &sk LSHFT     ___               &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT     &kp DEL
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          ___           ___           ___           ___           ___               ___           &kp LC(X)     &kp LC(INS)   &kp LS(INS)   ___
-     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                    ___           ___               ___           ___
-     //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
-)
