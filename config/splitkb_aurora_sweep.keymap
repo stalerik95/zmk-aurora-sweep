@@ -89,7 +89,7 @@ ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,         ALL)
 ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,     ALL)
 ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RM1 RM2 RM3,     ALL)
 ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2 RT3 RT4, ALL)
-ZMK_COMBO(combo_end,     &kp END,       RM1 RM2 RM3 RM5, ALL)
+ZMK_COMBO(combo_end,     &kp END,       RM1 RM2 RM3 RM4, ALL)
 
 // bluetooth
 ZMK_COMBO(combo_next_bt, &bt BT_NXT,    RT4 RM4 RB4,               ALL)
