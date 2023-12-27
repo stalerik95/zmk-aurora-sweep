@@ -72,20 +72,20 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 // combos
 #undef COMBO_TERM
 #define COMBO_TERM 60  // (default is 30ms if omitted)
-ZMK_COMBO(combo_copy,    &kp LC(C),     LB2 LB3, ALL)  // Ctrl + C, active on all layers
-ZMK_COMBO(combo_paste,   &kp LC(V),     LB1 LB2, ALL)  // Ctrl + V, active on all layers
+//ZMK_COMBO(combo_copy,    &kp LC(C),     LB2 LB3, ALL)  // Ctrl + C, active on all layers
+//ZMK_COMBO(combo_paste,   &kp LC(V),     LB1 LB2, ALL)  // Ctrl + V, active on all layers
 
-ZMK_COMBO(combo_escape,  &kp ESC,       LT4 LT3, ALL)
+ZMK_COMBO(combo_escape,  &kp ESC,       LM4 LM3, ALL)
 ZMK_COMBO(combo_return,  &kp RET,       LM2 LM1, ALL)
-ZMK_COMBO(combo_tab,     &kp TAB,       LM3 RM2, ALL)
+ZMK_COMBO(combo_tab,     &kp TAB,       LM3 LM2, ALL)
 ZMK_COMBO(combo_bspc,    &kp BSPC,      LM2 LT1, ALL)
-ZMK_COMBO(combo_del,     &kp DEL,       LT2 LT1, ALL)
+ZMK_COMBO(combo_del,     &kp DEL,       LT2 LM1, ALL)
 
 // navigation
 ZMK_COMBO(combo_up,      &kp UP,        RT1 RT2,         ALL)
 ZMK_COMBO(combo_down,    &kp DOWN,      RM1 RM2,         ALL)
 ZMK_COMBO(combo_left,    &kp LEFT,      RM1 RT2,         ALL)
-ZMK_COMBO(combo_right,   &kp RIGHT,     RT2 RM3,         ALL)
+ZMK_COMBO(combo_right,   &kp RIGHT,     RT1 RM2,         ALL)
 ZMK_COMBO(combo_pgup,    &kp PG_UP,     RT1 RT2 RT3,     ALL)
 ZMK_COMBO(combo_pgdn,    &kp PG_DN,     RM1 RM2 RM3,     ALL)
 ZMK_COMBO(combo_home,    &kp HOME,      RT1 RT2 RT3 RT4, ALL)
